@@ -1,216 +1,72 @@
-# AI Field Notes · AI 术语知识库
+# YGknowledgeBase ·「AI Field Notes」双语 AI 术语知识库网站
 
-> 一个面向真实工作场景的双语 AI 概念知识库网站，用最少的时间理解一个 AI 概念，马上知道怎么用。
+> 一句话简介：纯前端零后端的 AI 术语知识库——每个概念"一句人话解释+深入解读+日常用法+可复制提问模板"，中英双语、护眼夜间模式、即时搜索与收藏。
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![i18n](https://img.shields.io/badge/i18n-中文%2FEnglish-blueviolet?style=flat-square)
+## 一、项目概述与定位
 
-## 📖 项目简介
+**AI Field Notes** 是一个实用型 AI 术语知识库网站，口号是"像搜索提示词一样搜索术语"，用最少时间理解一个 AI 概念并马上知道怎么用。它**纯前端实现、数据以 JSON 本地存储、无需后端**，可部署到任意静态托管平台。
 
-**AI Field Notes** 是一个实用型的 AI 术语知识库网站，致力于让用户「像搜索提示词一样搜索术语」。每个术语都包含一句人话解释、深入解读、日常应用场景、可直接复制的 AI 提问模板，以及相关资源链接。
+每个术语的内容结构遵循"先看懂再深入"：①一句人话解释 → ②再多懂一点（深入解读）→ ③在日常中怎么用（实际场景）→ ④可以直接这样问 AI（可复制提问模板）→ ⑤代码示例（可选）→ ⑥继续探索（论文/GitHub 资源）→ ⑦相关术语推荐。
 
-网站采用纯前端实现，数据以 JSON 格式本地存储，无需后端服务，可直接部署到任意静态托管平台。支持中英文双语切换、护眼夜间模式、术语收藏、即时搜索等功能。
+设计理念：先用人话看懂、为真实工作而写、搜索体验简单直接、"把 AI 当成有能力但需要交代清楚的同事"。
 
-## ✨ 功能亮点
+## 二、功能
 
-- **即时搜索** — 首页与术语库页均支持实时搜索，匹配术语名称、英文名与简介
-- **分类浏览** — 六大分类：基础概念、提示词工程、模型架构、智能体 Agent、AI 开发工具、应用实践
-- **术语详情页** — 每个术语包含：
-  - 一句人话解释（先看懂）
-  - 再多懂一点（深入解读）
-  - 在日常中怎么用（实际场景）
-  - 可以直接这样问 AI（可复制的提问模板）
-  - 代码示例（可选，可展开）
-  - 继续探索（论文 / GitHub 资源链接）
-  - 下一步可以看（相关术语推荐）
-- **中英文双语** — 一键切换界面语言与术语内容
-- **护眼夜间模式** — 切换深色主题，保护视力
-- **收藏功能** — 收藏感兴趣的术语，数据存储在 localStorage
-- **热门术语** — 首页展示 Prompt、LLM、RAG、Agent 等高频概念
-- **精选术语** — 首页推荐最值得先了解的核心概念
-- **上一条/下一条** — 详情页支持快速切换相邻术语
-- **示意图放大** — 术语配图支持点击放大查看
-- **一键复制** — 提问模板与代码示例支持一键复制到剪贴板
-- **响应式设计** — 适配桌面端、平板与手机
+- **即时搜索**：首页与术语库页实时匹配术语名、英文名、简介。
+- **分类浏览**：六大分类——基础概念、提示词工程、模型架构、智能体 Agent、AI 开发工具、应用实践。
+- **术语详情页**：一句人话解释（高亮）、深入解读、可放大示意图、日常用法、可复制提问模板、可展开代码示例、继续探索资源、上一条/下一条、相关术语侧边栏。
+- **中英双语**：一键切换界面语言与术语内容（`content_en` 提供英文翻译）。
+- **护眼夜间模式**、**收藏功能**（localStorage）、**热门术语快捷入口**（Prompt/LLM/RAG/Agent）、**精选术语推荐**、**一键复制**提问模板与代码。
+- **响应式**：桌面/平板/手机自适应。
 
-## 🛠 技术栈
+## 三、技术栈
 
 | 类别 | 技术 |
-|------|------|
-| 标记语言 | HTML5（语义化结构） |
-| 样式 | Tailwind CSS（自定义构建版，内联在 css/tailwind.css） |
-| 交互 | 原生 JavaScript（ES6+，无框架依赖） |
-| 图标 | Lucide Icons（CDN 加载） |
-| 数据存储 | JSON 本地文件（data/terms.json） |
-| 本地存储 | localStorage（收藏、主题、语言偏好） |
-| 部署 | 任意静态托管平台 |
+|---|---|
+| 结构 | HTML5 语义化 |
+| 样式 | Tailwind CSS 自定义构建版（内联在 `css/tailwind.css`，16KB） |
+| 交互 | 原生 JavaScript ES6+（`js/main.js`，16KB，无框架） |
+| 图标 | Lucide Icons（CDN） |
+| 数据 | 本地 `data/terms.json`（约 47.8KB） |
+| 本地存储 | localStorage（收藏/主题/语言偏好） |
+| CI | GitHub Actions（`.github/workflows/jekyll-docker.yml`） |
 
-## 📁 项目结构
+## 四、目录结构
 
 ```
 YGknowledgeBase/
-├── index.html              # 首页（搜索、热门、分类、精选）
-├── list.html               # 术语库列表页（搜索、筛选、收藏）
-├── detail.html             # 术语详情页（动态渲染术语内容）
-├── css/
-│   └── tailwind.css        # Tailwind CSS 样式文件（含自定义样式）
-├── js/
-│   └── main.js             # 核心逻辑（数据加载、渲染、搜索、交互）
-├── data/
-│   └── terms.json          # 术语数据（中文术语 + 英文翻译内容）
-├── .github/                # GitHub 配置
-└── README.md               # 项目说明文档
+├── index.html              # 首页（Hero+全局搜索/热门术语/分类导航/精选卡片/AI使用理念）
+├── list.html               # 术语库列表页（搜索+分类筛选+收藏+卡片网格）
+├── detail.html             # 术语详情页（动态渲染单个术语）
+├── css/tailwind.css        # Tailwind 自定义样式（16KB）
+├── js/main.js              # 核心逻辑：fetch 加载数据/渲染/搜索/收藏/主题/双语切换（16KB）
+├── data/terms.json         # 术语数据（中文术语数组 + content_en 英文翻译，约 47.8KB）
+├── .github/workflows/jekyll-docker.yml  # 部署 CI（476B）
+└── README.md               # 项目说明
 ```
 
-## 🚀 快速开始
+## 五、关键内容解读
 
-### 本地预览
+- **`data/terms.json`**：核心知识库。结构为 `{ "terms": [...], "content_en": {...} }`。每个术语对象字段：`name`（中文名）、`english`（英文名）、`category`、`simple_desc`（一句人话）、`deep_desc`（深入解读）、`daily_case`（日常场景）、可选 `code_example`/`image_url`/`paper_url`/`github_url`、`related_terms`（相关术语名数组）；`content_en` 按术语名提供英文 `simple_desc/deep_desc/daily_case`。
+- **`js/main.js`**：用 `fetch()` 加载 JSON，负责首页/列表/详情三页渲染、实时搜索、分类筛选、收藏读写、深浅主题切换、中英切换、相邻术语导航、复制到剪贴板。
+- **localStorage 三个 key**：`field-notes-favorites`（收藏列表）、`field-notes-theme`（light/night）、`field-notes-language`（zh/en）。
+- **运行注意**：因用 `fetch` 加载本地 JSON，**不能用 `file://` 直接打开**，必须起 HTTP 服务（`python3 -m http.server 8080`）。
+
+## 六、运行与使用
 
 ```bash
-# 克隆仓库
-git clone https://github.com/YGtemple/YGknowledgeBase.git
-cd YGknowledgeBase
-
-# 启动本地服务器（必须通过 HTTP 访问，因为使用了 fetch 加载 JSON）
-python3 -m http.server 8080
-
-# 访问 http://localhost:8080
+git clone … && cd YGknowledgeBase
+python3 -m http.server 8080   # 访问 http://localhost:8080
 ```
 
-> ⚠️ 注意：由于项目使用 `fetch()` 加载本地 JSON 数据，不能直接用 `file://` 协议打开 `index.html`，必须通过 HTTP 服务器访问。
+新增术语：在 `data/terms.json` 的 `terms` 数组加对象、必要时在 `content_en` 加翻译、确保 `related_terms` 名称存在，刷新即可。
 
-### 部署上线
+## 七、数据/资源构成
 
-本项目为纯静态网站，可部署到任意静态托管平台：
+全部为**文本文件**（HTML/CSS/JS/JSON/YAML/Markdown），**无图片、音视频、字体、压缩包等二进制文件**；术语配图为可选的外链 `image_url`。术语数据约数十条（存于 terms.json）。
 
-**GitHub Pages：**
-```bash
-git add .
-git commit -m "feat: AI 术语知识库"
-git push
-# Settings → Pages → Source: main branch
-```
+## 八、项目特点
 
-**Netlify / Vercel / Cloudflare Pages：** 关联仓库或拖拽文件夹即可自动部署。
-
-## 📊 数据格式
-
-术语数据存储在 `data/terms.json` 中，结构如下：
-
-```json
-{
-  "terms": [
-    {
-      "name": "提示词",
-      "english": "Prompt",
-      "category": "提示词工程",
-      "simple_desc": "你给 AI 的指令，决定了它会输出什么。",
-      "deep_desc": "提示词是用户与大语言模型交互的输入文本……",
-      "daily_case": "写邮件时，告诉 AI 收件人身份、邮件目的和语气……",
-      "code_example": "// 可选，代码示例",
-      "image_url": "示意图 URL（可选）",
-      "paper_url": "论文链接（可选）",
-      "github_url": "GitHub 项目链接（可选）",
-      "related_terms": ["大语言模型", "智能体 Agent"]
-    }
-  ],
-  "content_en": {
-    "提示词": {
-      "simple_desc": "The instruction you give to AI...",
-      "deep_desc": "A prompt is the input text...",
-      "daily_case": "When writing an email..."
-    }
-  }
-}
-```
-
-### 字段说明
-
-| 字段 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `name` | string | ✅ | 术语中文名 |
-| `english` | string | ✅ | 术语英文名 |
-| `category` | string | ✅ | 分类（基础概念/提示词工程/模型架构/智能体Agent/AI开发工具/应用实践） |
-| `simple_desc` | string | ✅ | 一句人话解释 |
-| `deep_desc` | string | ✅ | 深入解读 |
-| `daily_case` | string | ✅ | 日常应用场景 |
-| `code_example` | string | ❌ | 代码示例 |
-| `image_url` | string | ❌ | 示意图 URL |
-| `paper_url` | string | ❌ | 论文/官方资料链接 |
-| `github_url` | string | ❌ | GitHub 项目链接 |
-| `related_terms` | array | ✅ | 相关术语名称列表 |
-
-## 🎨 设计理念
-
-- **先用人话看懂，再决定要不要深入** — 每个术语先给一句最直白的解释
-- **为真实工作而写** — 不堆砌学术定义，聚焦实际使用场景
-- **像搜索提示词一样搜索术语** — 搜索体验简单直接
-- **把 AI 当成有能力、但需要交代清楚的同事** — 引导用户正确使用 AI
-
-## 🌐 功能模块详解
-
-### 首页 (index.html)
-- Hero 区域：标题 + 副标题 + 全局搜索框
-- 热门术语快捷入口：Prompt / LLM / RAG / Agent
-- 分类导航：六大分类一键跳转
-- 精选术语：6 个高频概念卡片展示
-- AI 使用理念：引导用户正确使用 AI
-
-### 术语库 (list.html)
-- 搜索框：支持术语名、英文名、简介搜索
-- 分类筛选：全部 / 收藏 / 各分类
-- 术语卡片网格：分类标签 + 术语名 + 简介 + 英文名
-- 收藏按钮：每个卡片可收藏/取消收藏
-- 结果计数：实时显示搜索结果数量
-
-### 详情页 (detail.html)
-- 返回按钮 + 分类标签 + 术语名 + 英文名
-- 一句人话解释（高亮展示）
-- 再多懂一点（深入解读）
-- 示意图（可点击放大）
-- 在日常中怎么用
-- 可以直接这样问 AI（可复制提问模板）
-- 代码示例（可展开/折叠，可复制）
-- 继续探索（论文 / GitHub 资源）
-- 上一条 / 下一条导航
-- 侧边栏：相关术语推荐
-
-## 🔧 本地存储
-
-网站使用 localStorage 保存用户偏好：
-
-| Key | 说明 | 默认值 |
-|-----|------|--------|
-| `field-notes-favorites` | 收藏的术语列表 | `[]` |
-| `field-notes-theme` | 主题（light / night） | `light` |
-| `field-notes-language` | 语言（zh / en） | `zh` |
-
-## 📝 添加新术语
-
-1. 打开 `data/terms.json`
-2. 在 `terms` 数组中添加新术语对象
-3. 如需英文内容，在 `content_en` 中添加对应翻译
-4. 确保 `related_terms` 中的术语名称已存在
-5. 保存后刷新页面即可
-
-## 🎯 术语分类
-
-| 分类 | 说明 |
-|------|------|
-| **基础概念** | AI 领域最基础的核心概念 |
-| **提示词工程** | Prompt 设计与优化相关技术 |
-| **模型架构** | 大模型底层架构与技术原理 |
-| **智能体 Agent** | AI Agent 相关概念与框架 |
-| **AI开发工具** | AI 开发常用工具与平台 |
-| **应用实践** | AI 在实际场景中的应用方法 |
-
-## 📄 许可证
-
-本项目采用 MIT 许可证开源。
-
-## 📮 联系方式
-
-- GitHub：[@YGtemple](https://github.com/YGtemple)
-- 项目地址：[github.com/YGtemple/YGknowledgeBase](https://github.com/YGtemple/YGknowledgeBase)
+1. **内容产品而非代码产品**：核心价值在 `terms.json` 的术语释义质量，技术实现极简（无框架、无后端）。
+2. **双语 + 可扩展数据模型**：新增术语只改 JSON，前端自动渲染，便于持续扩充。
+3. **实用导向**：每条术语都配"可直接复制的提问模板"和日常场景，降低从概念到上手的门槛。
